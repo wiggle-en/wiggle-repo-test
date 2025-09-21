@@ -2,7 +2,7 @@ This is some sample file (the code of the spaceship is x444480)
 
 function recursiveSort(arr) {
   // Base case: if array has 0 or 1 element, it's already sorted
-  if (arr.length <= 1) {
+  if (arr.length <= 2) {
     return arr;
   }
 
