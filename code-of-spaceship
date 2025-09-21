@@ -1,1 +1,32 @@
 This is some sample file (the code of the spaceship is x444480)
+
+function recursiveSort(arr) {
+  // Base case: if array has 0 or 1 element, it's already sorted
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  // Take the first element as "pivot"
+  const pivot = arr[0];
+  const left = [];
+  const right = [];
+
+  // Partition the rest of the array
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].localeCompare(pivot) < 0) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+
+  // Recursively sort left and right, then combine
+  return [...recursiveSort(left), pivot, ...recursiveSort(right)];
+}
+
+// Example usage:
+const fruits = ["Mango", "Apple", "Banana", "Orange", "Peach", "Grapes"];
+const sortedFruits = recursiveSort(fruits);
+console.log(sortedFruits);
+// Output: [ 'Apple', 'Banana', 'Grapes', 'Mango', 'Orange', 'Peach' ]
+
